@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+    encoding: utf8
+    database: api_players_dev
+    pool: 80
+    username: postgres
+    host: localhost
+    template: template0
+    database_tasks: false
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: api_players_test
+  pool: 5
+  username: postgres
+  min_messages: WARNING
+  host: localhost
+  template: template0

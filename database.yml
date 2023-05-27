@@ -1,0 +1,39 @@
+development:
+  backoffice:
+    adapter: postgresql
+    encoding: utf8
+    database: backoffice_dev
+    pool: 80
+    username: postgres
+    host: localhost
+    template: template0
+  old_backoffice:
+    adapter: postgresql
+    encoding: utf8
+    database: indie_campers_pilot_dev
+    pool: 80
+    username: postgres
+    host: localhost
+    template: template0
+    database_tasks: false
+
+test:
+  backoffice:
+    adapter: postgresql
+    encoding: utf8
+    database: backoffice_test
+    pool: 5
+    username: postgres
+    min_messages: WARNING
+    host: localhost
+    template: template0
+  old_backoffice:
+    adapter: postgresql
+    encoding: utf8
+    database: indie_campers_pilot_test
+    pool: 5
+    username: postgres
+    min_messages: WARNING
+    host: localhost
+    template: template0
+    database_tasks: false

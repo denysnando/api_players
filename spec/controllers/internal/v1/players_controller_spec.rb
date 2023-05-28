@@ -2,25 +2,25 @@
 
 require 'rails_helper'
 
-RSpec.describe Internal::V1::PlayersController, type: :controller do
+RSpec.describe Internal::V1::PlayersController do
   describe '#index' do
     before do
-      FactoryBot.create_list(:player, 5)
+      create_list(:player, 5)
     end
 
     it 'returns a players list' do
       get :index
 
-      resp = JSON.parse(response.body)
+      resp = response.parsed_body
 
-      expect(resp['players']).to_not match_array([])
+      expect(resp['players']).not_to be_empty
       expect(resp['players'].count).to eq(5)
     end
   end
 
   describe '#create' do
-    let(:params){ nil }
-    let(:do_request){ post :create, params: params }
+    let(:params) { nil }
+    let(:do_request) { post :create, params: }
 
     context 'with a valid params' do
       let(:params) do
@@ -36,10 +36,10 @@ RSpec.describe Internal::V1::PlayersController, type: :controller do
       end
 
       it 'creates a player' do
-        expect(do_request).to have_http_status(:success)
-        expect(JSON.parse(response.body)["player"].present?).to be_truthy
+        expect { do_request }.to change(Player, :count).by(1)
 
-        expect(Player.count).to eq(1)
+        expect(do_request).to have_http_status(:success)
+        expect(response.parsed_body['player']).to be_present
       end
     end
 
@@ -55,9 +55,8 @@ RSpec.describe Internal::V1::PlayersController, type: :controller do
       it 'list of errors' do
         expect(do_request).to have_http_status(:unprocessable_entity)
 
-        expect(JSON.parse(response.body).dig('errors')).to match_array(
-          ["Nationality can't be blank", "Position can't be blank"]
-        )
+        expect(response.parsed_body['errors']).to contain_exactly("Nationality can't be blank",
+                                                                  "Position can't be blank")
 
         expect(StandardError).to be_present
       end

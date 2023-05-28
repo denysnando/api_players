@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  player:
+    not_found: "Player not found"

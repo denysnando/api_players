@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Player, type: :model do
+RSpec.describe Player do
   describe 'associations' do
     it { is_expected.to have_many(:notifications) }
   end

@@ -54,7 +54,7 @@ RSpec.describe Internal::V1::NotificationsController do
 
       it 'list of errors' do
         expect(do_request).to have_http_status(:unprocessable_entity)
-        expect(response.parsed_body['errors']).to contain_exactly("Player must exist")
+        expect(response.parsed_body['errors']).to contain_exactly('Player must exist')
 
         expect(StandardError).to be_present
       end
@@ -62,7 +62,7 @@ RSpec.describe Internal::V1::NotificationsController do
   end
 
   describe '#update' do
-    let(:notification) { create(:notification, player: player) }
+    let(:notification) { create(:notification, player:) }
     let(:params) { nil }
     let(:do_request) { put :update, params: }
 
@@ -98,7 +98,7 @@ RSpec.describe Internal::V1::NotificationsController do
 
       it 'try updates a notification' do
         expect(do_request).to have_http_status(:unprocessable_entity)
-        expect(response.parsed_body['errors']).to contain_exactly("Player must exist")
+        expect(response.parsed_body['errors']).to contain_exactly('Player must exist')
 
         expect(StandardError).to be_present
       end

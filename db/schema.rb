@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_130034) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_220814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,5 +36,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_130034) do
     t.index ["position"], name: "index_players_on_position"
   end
 
+  create_table "subscribe_notifications", force: :cascade do |t|
+    t.bigint "player_id"
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id", "email"], name: "index_subscribe_notifications_on_player_id_and_email", unique: true
+    t.index ["player_id"], name: "index_subscribe_notifications_on_player_id"
+  end
+
   add_foreign_key "notifications", "players"
+  add_foreign_key "subscribe_notifications", "players"
 end

@@ -6,6 +6,6 @@ class Notification < ApplicationRecord
 
   # Validations
   validates :message, presence: true,
-            length: { maximum: 255 },
-            uniqueness: { scope: :player_id, case_sensitive: false }
+                      length: { maximum: 255 },
+                      uniqueness: { scope: :player_id, case_sensitive: false }
 end

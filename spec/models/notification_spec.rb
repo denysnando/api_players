@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Notification, type: :model do
+RSpec.describe Notification do
   subject { build(:notification) }
 
   describe 'associations' do

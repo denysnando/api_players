@@ -7,4 +7,10 @@ Rails.application.routes.draw do
       resources :notifications
     end
   end
+  namespace :external do
+    namespace :v1 do
+      post 'subscribe', to: 'subscribe_notifications#subscribe'
+      get 'players', to: 'subscribe_notifications#players'
+    end
+  end
 end

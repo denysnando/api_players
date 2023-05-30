@@ -35,3 +35,5 @@ en:
     not_found: "Player not found"
   notification:
     not_found: "Notification not found"
+  subscribe_notifications:
+    success: "Successfully Subscribed"

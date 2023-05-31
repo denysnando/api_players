@@ -4,30 +4,30 @@ require 'rails_helper'
 
 RSpec.describe RealFevr::ConsumeData do
   let(:consume_params) do
-      {
-        teams: [
-          {
-            name: 'Belenenses',
-            acronym: 'BFS',
-            players: [
-              {
-                name: 'Filipe Mendes',
-                number: nil,
-                nationality: 'Portugal',
-                birthdate: '1985-06-17',
-                position: 'G'
-              },
-              {
-                name: 'André Geraldes',
-                number: 28,
-                nationality: 'Portugal',
-                birthdate: '1991-05-02',
-                position: 'D'
-              },
-            ]
-          }
-        ]
-      }
+    {
+      teams: [
+        {
+          name: 'Belenenses',
+          acronym: 'BFS',
+          players: [
+            {
+              name: 'Filipe Mendes',
+              number: nil,
+              nationality: 'Portugal',
+              birthdate: '1985-06-17',
+              position: 'G'
+            },
+            {
+              name: 'André Geraldes',
+              number: 28,
+              nationality: 'Portugal',
+              birthdate: '1991-05-02',
+              position: 'D'
+            }
+          ]
+        }
+      ]
+    }
   end
 
   let(:subject) { described_class.new(consume_params) }

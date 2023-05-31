@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module RealFevr
   class Api
     class << self
@@ -9,7 +10,7 @@ module RealFevr
       #
       # @return json with teams and players infos
 
-      URL='https://c8e021d8-5251-4e83-827a-64176b4737c5.mock.pstmn.io/players'.freeze
+      URL = 'https://c8e021d8-5251-4e83-827a-64176b4737c5.mock.pstmn.io/players'
 
       def import
         RealFevr::ConsumeData.new(parsed_body)
@@ -18,7 +19,7 @@ module RealFevr
       private
 
       def parsed_body
-        JSON.parse(result).dig('data')
+        JSON.parse(result)['data']
       end
 
       def result
@@ -31,8 +32,8 @@ module RealFevr
 
       def headers
         {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+          Accept: 'application/json',
+          'Content-type': 'application/json'
         }
       end
     end

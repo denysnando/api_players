@@ -4,26 +4,26 @@ require 'rails_helper'
 
 RSpec.describe RealFevr::Team do
   let(:team_params) do
-      {
-        name: 'Belenenses',
-        acronym: 'BFS',
-        players: [
-          {
-            name: 'Filipe Mendes',
-            number: nil,
-            nationality: 'Portugal',
-            birthdate: '1985-06-17',
-            position: 'G'
-          },
-          {
-            name: 'André Geraldes',
-            number: 28,
-            nationality: 'Portugal',
-            birthdate: '1991-05-02',
-            position: 'D'
-          },
-        ]
-      }
+    {
+      name: 'Belenenses',
+      acronym: 'BFS',
+      players: [
+        {
+          name: 'Filipe Mendes',
+          number: nil,
+          nationality: 'Portugal',
+          birthdate: '1985-06-17',
+          position: 'G'
+        },
+        {
+          name: 'André Geraldes',
+          number: 28,
+          nationality: 'Portugal',
+          birthdate: '1991-05-02',
+          position: 'D'
+        }
+      ]
+    }
   end
 
   let(:subject) { described_class.new(team_params) }

@@ -36,8 +36,8 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'rspec-sidekiq'
   gem 'vcr', '~> 6.1.0'
-
   # Stub HTTP requests
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov'

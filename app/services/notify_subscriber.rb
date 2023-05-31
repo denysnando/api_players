@@ -14,12 +14,13 @@ class NotifySubscriber
   def call
     return if emails.blank?
 
-    Rails.logger.info("######################################################")
+    Rails.logger.info('######################################################')
     Rails.logger.info("to: #{emails}")
     Rails.logger.info("Player: #{notification.player.name}")
     Rails.logger.info("Body message: #{notification.message}")
-    Rails.logger.info("######################################################")
+    Rails.logger.info('######################################################')
 
+    notification
     # TODO: SubscribeNotificationMailer.with(email:, notification:).news.deliver_later
   end
 

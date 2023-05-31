@@ -40,6 +40,8 @@ RSpec.describe Internal::V1::NotificationsController do
         expect(do_request).to have_http_status(:created)
         expect(response.parsed_body['notification']).to be_present
         expect(response.parsed_body['notification']['player']).to be_present
+        expect(NotifySubscriberWorker)
+          .to have_enqueued_sidekiq_job(response.parsed_body['notification']['id'])
       end
     end
 
@@ -83,6 +85,9 @@ RSpec.describe Internal::V1::NotificationsController do
         expect(response.parsed_body['notification']).to be_present
         expect(response.parsed_body['notification']['message']).to eq('New message notification received')
         expect(response.parsed_body['notification']['player']['name']).to eq(player.name)
+
+        expect(NotifySubscriberWorker)
+          .to have_enqueued_sidekiq_job(notification.id)
       end
     end
 

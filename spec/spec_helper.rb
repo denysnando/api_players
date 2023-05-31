@@ -7,23 +7,6 @@ if ENV['coverage']
 
   SimpleCov.start do
     enable_coverage :branch
-
-    add_filter '/spec/'
-    add_filter '/initializers/'
-    add_filter '/features/'
-    add_filter '/factories/'
-    add_filter '/config/'
-    add_filter '/serializers/'
-    add_filter '/jobs/'
-
-    add_group 'Controllers', 'app/controllers'
-    add_group 'Models', 'app/models'
-    add_group 'Helpers', 'app/helpers'
-    add_group 'Services', 'app/services'
-    add_group 'Concerns', 'app/concerns'
-    add_group 'Jobs', 'app/jobs'
-    add_group 'Lib', 'lib'
-    add_group 'Serializers', 'app/serializers'
   end
 end
 

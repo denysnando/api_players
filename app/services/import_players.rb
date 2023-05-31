@@ -10,10 +10,12 @@ class ImportPlayers
   end
 
   def call
+    return if team.blank?
+
     Rails.logger.debug { "Import team players #{team.name}" }
 
     team.players.each do |player|
-      Player.find_or_create_by(
+      ::Player.find_or_create_by(
         name: player.name,
         number: player.number,
         nationality: player.nationality,

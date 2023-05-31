@@ -10,10 +10,10 @@ gem 'rails', '~> 7.0.4'
 gem 'bootsnap', require: false
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'puma', '~> 5.0'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'rest-client', '~> 2.1'
 gem 'sidekiq', '~> 6.5'
 gem 'sidekiq-cron', '~> 1.10', '>= 1.10.1'
-gem 'rest-client', '~> 2.1'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'virtus', '~> 1.0'
 
 group :development, :test do

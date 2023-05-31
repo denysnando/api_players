@@ -23,6 +23,7 @@ module Internal
         notification = Notification.new(notification_params)
 
         if notification.save
+          NotifySubscriberWorker.perform_async(notification.id)
           render status: :created, json: { notification: Internal::NotificationsSerializer.new(notification).to_h }
         else
           render status: :unprocessable_entity, json: { errors: notification.errors.full_messages }
@@ -31,6 +32,7 @@ module Internal
 
       def update
         if @notification.update(notification_params)
+          NotifySubscriberWorker.perform_async(@notification.id)
           render status: :ok, json: { notification: Internal::NotificationsSerializer.new(@notification).to_h }
         else
           render status: :unprocessable_entity, json: { errors: @notification.errors.full_messages }

@@ -8,9 +8,11 @@ Bundler.require(*Rails.groups)
 
 module ApiPlayers
   class Application < Rails::Application
+    config.autoload_paths += %W( lib/ )
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    # Add directories that should be watched for change
+    config.watchable_dirs['lib'] = [:rb]
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -13,6 +13,8 @@ gem 'puma', '~> 5.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'sidekiq', '~> 6.5'
 gem 'sidekiq-cron', '~> 1.10', '>= 1.10.1'
+gem 'rest-client', '~> 2.1'
+gem 'virtus', '~> 1.0'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

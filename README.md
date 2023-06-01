@@ -1,6 +1,6 @@
 ## About
 
-Hi, This project is a back-end api challenge which implements
+Hi, This project is a back-end api which implements
   - Players crud
   - Notifications crud
   - Subscribe information for players

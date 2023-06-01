@@ -8,7 +8,7 @@ RSpec.describe RealFevr::Api do
 
   describe 'when call import players' do
     it 'returns parsed team and players' do
-      VCR.use_cassette("real_api/players", :record => :new_episodes) do
+      VCR.use_cassette("real_api/players") do
         response = subject
 
         expect(response.teams.count).to eq(18)

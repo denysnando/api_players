@@ -12,7 +12,7 @@ class NotifySubscriber
   end
 
   def call
-    return if emails.blank?
+    return [] if emails.blank?
 
     Rails.logger.info('######################################################')
     Rails.logger.info("to: #{emails}")

@@ -3,15 +3,14 @@
 module RealFevr
   class Api
     class << self
+      URL = 'https://c8e021d8-5251-4e83-827a-64176b4737c5.mock.pstmn.io/players'
+
       # Exports a delivery receipt to ADaM
       #
       # @example Make a valid request
       #   RealFevr::Api.import
       #
       # @return json with teams and players infos
-
-      URL = 'https://c8e021d8-5251-4e83-827a-64176b4737c5.mock.pstmn.io/players'
-
       def import
         RealFevr::ConsumeData.new(parsed_body)
       end

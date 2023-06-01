@@ -2,15 +2,26 @@
 
 $LOAD_PATH << File.expand_path('..', __dir__)
 
+require 'vcr'
+
 if ENV['coverage']
   require 'simplecov'
 
   SimpleCov.start do
     enable_coverage :branch
+
+    add_filter 'config/initializers/sidekiq.rb'
+    add_filter 'spec/rails_helper.rb'
   end
 end
 
 RSpec.configure do |config|
+
+  VCR.configure do |config|
+    config.cassette_library_dir = "fixtures/vcr_cassettes"
+    config.hook_into :webmock
+    config.configure_rspec_metadata!
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

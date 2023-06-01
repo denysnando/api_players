@@ -29,7 +29,7 @@ describe ImportPlayersWorker do
   describe '#perform' do
     before { allow(RealFevr::Api).to receive(:import).and_return(params_parsed) }
 
-    it 'destroy notifications older than a week' do
+    it 'should call and finished' do
       expect(ImportPlayers).to receive(:call).and_return(true)
 
       described_class.perform_sync

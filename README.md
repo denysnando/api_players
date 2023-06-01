@@ -65,7 +65,8 @@ and you can get coverage after:
 
 By the way about coverage: 
 
-![image](https://github.com/denysnando/api_players/assets/3411874/86cf7d7c-3fa9-420b-99f8-453483f5678d)
+![image](https://github.com/denysnando/api_players/assets/3411874/dbaae846-6c28-4dd1-ba4e-23bf3047a9a2)
+
 
 
 # TODO
